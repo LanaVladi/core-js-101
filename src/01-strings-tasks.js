@@ -5,7 +5,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns the result of concatenation of two strings.
  *
@@ -22,7 +21,6 @@ function concatenateStrings(value1, value2) {
   // throw new Error('Not implemented');
   return `${value1}${value2}`;
 }
-
 
 /**
  * Returns the length of given string.
@@ -70,9 +68,8 @@ function getStringFromTemplate(firstName, lastName) {
  */
 function extractNameFromTemplate(value) {
   // throw new Error('Not implemented');
-  return value.substring(7, (value.length - 1));
+  return value.substring(7, value.length - 1);
 }
-
 
 /**
  * Returns a first char of the given string.
@@ -152,9 +149,8 @@ function removeFirstOccurrences(str, value) {
 function unbracketTag(str) {
   // throw new Error('Not implemented');
   // return str.replace('<', '').replace('>', '');
-  return str.slice(1, (str.length - 1));
+  return str.slice(1, str.length - 1);
 }
-
 
 /**
  * Converts all characters of the specified string into the upper case
@@ -216,23 +212,12 @@ function extractEmails(str) {
  */
 function getRectangleString(/* width, height */) {
   throw new Error('Not implemented');
-  // const upLeftAngle = '┌';
-  // const upRightAngle = '┐';
-  // const verticalLine = '│';
-  // const horizontalLine = '─';
-  // const downLeftAngle = '└';
-  // const downRightAngle = '┘';
-
-  // const widthUp = horizontalLine.repeat(width / 2);
-  // const heightLine = verticalLine.repeat(height / height);
-
-  // return `${upLeftAngle}${widthUp}${upRightAngle}\n${heightLine}
-  // ${heightLine}\n${heightLine}    ${heightLine}\n${downLeftAngle}${widthUp}${downRightAngle}\n`;
-
-  // const widthUp = up.repeat(width - 2);
-  // const heightLine = verticalLine.repeat(height / height);
-  // const widthDown = down.repeat(width / width);
-  // const widthDown = down.repeat(width / width);
+  // const rn = '\n';
+  // const lineUp = `┌${'─'.repeat(width - 2)}┐${rn}`;
+  // const lineDown = `└${'─'.repeat(width - 2)}┘${rn}`;
+  // const center = (width > 1) ? `│${' '.repeat(width - 2).repeat(height - 2)}│${rn}│
+  // ${' '.repeat(width - 2).repeat(height - 2)}│${rn}` : '';
+  // return (height > 1) ? `${lineUp}${center}${lineDown}` : '┌┐└┘';
 }
 
 
@@ -254,7 +239,7 @@ function getRectangleString(/* width, height */) {
  */
 function encodeToRot13(/* str */) {
   throw new Error('Not implemented');
-  // str.
+  // return str.split('').map((char) => char.replace(char, char.indexOf(char.length + 13)));
 }
 
 /**
@@ -270,11 +255,10 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
-  // return typeof value === 'string';
+function isString(value) {
+  // throw new Error('Not implemented');
+  return (typeof value === 'string' || value instanceof String);
 }
-
 
 /**
  * Returns playid card id.
@@ -302,8 +286,13 @@ function isString(/* value */) {
  */
 function getCardId(/* value */) {
   throw new Error('Not implemented');
+  // const deck = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+  //   'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+  //   'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+  //   'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  // return deck.forEach((el) => findIndex(function(value)
+  //  {el === value}));
 }
-
 
 module.exports = {
   concatenateStrings,
