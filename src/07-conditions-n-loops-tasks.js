@@ -348,6 +348,15 @@ function getDigitalRoot(/* num */) {
  */
 function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
+  // let arr = [];
+  // if (str.length % 2 !== 0) {
+  //   return false;
+  // }
+  // if (str.split('').filter((bracket, index, arr) => arr.indexOf(bracket) ===
+  //  arr.lastIndexOf(bracket))) {
+  //   return true;
+  // }
+  // return false;
 }
 
 /**
