@@ -19,8 +19,9 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
-function parseDataFromRfc2822(/* value */) {
-  throw new Error('Not implemented');
+function parseDataFromRfc2822(value) {
+  // throw new Error('Not implemented');
+  return new Date(value);
 }
 
 /**
@@ -34,8 +35,9 @@ function parseDataFromRfc2822(/* value */) {
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
-function parseDataFromIso8601(/* value */) {
-  throw new Error('Not implemented');
+function parseDataFromIso8601(value) {
+  // throw new Error('Not implemented');
+  return new Date(value);
 }
 
 
@@ -55,6 +57,21 @@ function parseDataFromIso8601(/* value */) {
  */
 function isLeapYear(/* date */) {
   throw new Error('Not implemented');
+  // const year = date.getFullYear();
+  // let result = 0;
+  // return (year % 4 === 0) || (year % 100 !== 0) || (year % 400 === 0);
+  // return date.getDate() === 29;
+  // return (yr % 400) ? ((yr % 100) ? ((yr % 4) ? false : true) : false) : true;
+  // if (year / 400) {
+  //   result = true;
+  // } else if (year / 100) {
+  //   result = false;
+  // } else if (year / 4) {
+  //   result = true;
+  // } else {
+  //   result = false;
+  // }
+  // return result;
 }
 
 
