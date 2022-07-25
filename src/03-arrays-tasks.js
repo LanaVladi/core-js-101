@@ -243,8 +243,10 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
   // throw new Error('Not implemented');
-  let sum = 0;
-  const resultArr = arr.map((el) => (sum += el));
+  // let sum = 0;
+  // const resultArr = arr.map((el) => (sum += el));
+  // return resultArr;
+  const resultArr = arr.map((el, ind) => arr.slice(0, ind + 1).reduce((a, b) => a + b));
   return resultArr;
 }
 
@@ -413,8 +415,9 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  // throw new Error('Not implemented');
+  return arr.join(',');
 }
 
 /**
@@ -590,8 +593,18 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  // throw new Error('Not implemented');
+  const middleIndex = Math.ceil(arr.length / 2);
+  if (arr.length % 2 === 0) {
+    const headPart = arr.splice(0, middleIndex);
+    const tailPart = arr.splice(-middleIndex);
+    return [...tailPart, ...headPart];
+  }
+  const headPartOdd = arr.splice(0, middleIndex - 1);
+  const tailPartOdd = arr.splice(-middleIndex + 1);
+  const middlePart = arr.splice(arr[middleIndex], 1);
+  return [...tailPartOdd, ...middlePart, ...headPartOdd];
 }
 
 module.exports = {
