@@ -315,14 +315,13 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
-  // let sumDigits = 0;
-  // while (num > 0 || sumDigits > 9) {
-  //   sumDigits += num % 10;
-  //  parseInt(num / 10, 10);
-  // }
-  // return sumDigits;
+function getDigitalRoot(num) {
+  // throw new Error('Not implemented');
+  if (num > 9) {
+    const sumDigits = Array.from(String(num), Number).reduce((a, b) => a + b);
+    return getDigitalRoot(sumDigits);
+  }
+  return num;
 }
 
 /**
@@ -352,11 +351,6 @@ function isBracketsBalanced(/* str */) {
   // if (str.length % 2 !== 0) {
   //   return false;
   // }
-  // if (str.split('').filter((bracket, index, arr) => arr.indexOf(bracket) ===
-  //  arr.lastIndexOf(bracket))) {
-  //   return true;
-  // }
-  // return false;
 }
 
 /**
@@ -420,6 +414,15 @@ function getCommonDirectoryPath(/* pathes */) {
  */
 function getMatrixProduct(/* m1, m2 */) {
   throw new Error('Not implemented');
+// const newMatrix = [];
+// for (let i = 0; i < m1.length; i++) {
+//   for (let j = 0; j < m2.length; j++) {
+//     for (let k = 0; k < m2[j].length; k++) {
+//      let divide =
+//      newMatrix.push(divide);
+//     }
+//   }
+// }
 }
 
 /**
