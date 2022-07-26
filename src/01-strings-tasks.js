@@ -210,14 +210,13 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
-  // const rn = '\n';
-  // const lineUp = `┌${'─'.repeat(width - 2)}┐${rn}`;
-  // const lineDown = `└${'─'.repeat(width - 2)}┘${rn}`;
-  // const center = (width > 1) ? `│${' '.repeat(width - 2).repeat(height - 2)}│${rn}│
-  // ${' '.repeat(width - 2).repeat(height - 2)}│${rn}` : '';
-  // return (height > 1) ? `${lineUp}${center}${lineDown}` : '┌┐└┘';
+function getRectangleString(width, height) {
+  // throw new Error('Not implemented');
+  const rn = '\n';
+  const lineUp = `┌${'─'.repeat(width - 2)}┐${rn}`;
+  const lineDown = `└${'─'.repeat(width - 2)}┘${rn}`;
+  const center = `│${' '.repeat(width - 2)}│${rn}`;
+  return `${lineUp}${center.repeat(height - 2)}${lineDown}`;
 }
 
 
@@ -237,9 +236,11 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
-  // return str.split('').map((char) => char.replace(char, char.indexOf(char.length + 13)));
+function encodeToRot13(str) {
+  // throw new Error('Not implemented');
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const alphabetROT13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  return str.replace(/[a-z]/gi, (char) => alphabetROT13[alphabet.indexOf(char)]);
 }
 
 /**
@@ -284,14 +285,13 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
-  // const deck = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
-  //   'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
-  //   'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
-  //   'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
-  // return deck.forEach((el) => findIndex(function(value)
-  //  {el === value}));
+function getCardId(value) {
+  // throw new Error('Not implemented');
+  const deck = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  return deck.findIndex((el) => el === value);
 }
 
 module.exports = {
