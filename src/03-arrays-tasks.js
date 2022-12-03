@@ -384,7 +384,7 @@ function getItemsSum(arr) {
 function getFalsyValuesCount(arr) {
   // throw new Error('Not implemented');
   const filteredArr = arr.filter(Boolean);
-  return (arr.length - filteredArr.length);
+  return arr.length - filteredArr.length;
 }
 
 /**
@@ -448,8 +448,25 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  // throw new Error('Not implemented');
+  arr.sort((a, b) => {
+    const countryA = a.country;
+    const countryB = b.country;
+    if (countryA < countryB) {
+      return -1;
+    }
+    if (countryA > countryB) {
+      return 1;
+    }
+    const cityA = a.city;
+    const cityB = b.city;
+    if (cityA < cityB) {
+      return -1;
+    }
+    return 1;
+  });
+  return arr;
 }
 
 /**
@@ -489,7 +506,7 @@ function getIdentityMatrix(/* n */) {
  */
 function getIntervalArray(start, end) {
   // throw new Error('Not implemented');
-  return Array.from({ length: ((end + 1) - start) }, (_, i) => start + i);
+  return Array.from({ length: end + 1 - start }, (_, i) => start + i);
 }
 
 /**
