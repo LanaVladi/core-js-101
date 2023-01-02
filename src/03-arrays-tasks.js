@@ -281,8 +281,9 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  // throw new Error('Not implemented');
+  return arr.reduce((acc, curr, i) => acc.concat(Array.from({ length: i + 1 }, () => curr)), []);
 }
 
 /**
@@ -487,8 +488,23 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  // throw new Error('Not implemented');
+  // const result = [];
+  // for (let i = 0; i < n; i += 1) {
+  //   if (!result[i]) {
+  //     result[i] = [];
+  //   }
+  //   for (let j = 0; j < n; j += 1) {
+  //     if (i === j) {
+  //       result[i][j] = 1;
+  //     } else {
+  //       result[i][j] = 0;
+  //     }
+  //   }
+  // }
+  // return result;
+  return Array(n).fill(0).map((row, i) => Array(n).fill(0).map((column, j) => (i === j ? 1 : 0)));
 }
 
 /**
@@ -574,8 +590,10 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  // throw new Error('Not implemented');
+  // return arr.map(childrenSelector).flat();
+  return arr.flatMap(childrenSelector);
 }
 
 /**
